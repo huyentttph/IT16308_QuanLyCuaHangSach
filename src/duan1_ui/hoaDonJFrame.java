@@ -16,7 +16,12 @@ public class hoaDonJFrame extends javax.swing.JFrame {
      */
     public hoaDonJFrame() {
         initComponents();
+        init();
     }
+void init(){
+    setLocationRelativeTo(null);
+    
+}
 
     /**
      * This method is called from within the constructor to initialize the form.

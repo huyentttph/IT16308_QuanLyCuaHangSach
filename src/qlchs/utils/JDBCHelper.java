@@ -16,7 +16,7 @@ public class JDBCHelper {
     public static String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static String url="jdbc:sqlserver://localhost:1433;databaseName=QLNS";
     public static String username="sa";
-    public static String password="songlong";
+    public static String password="van";
     //nạp driver
     static{
         try {
@@ -41,10 +41,13 @@ public class JDBCHelper {
              
     }
     
-    public static ResultSet query(String sql,Object...args) throws SQLException {
-        PreparedStatement pstm=JDBCHelper.getStm(sql,args);
+    public static ResultSet query(String sql,Object...args) {
+        try {
+        PreparedStatement pstm= getStm(sql,args);
         return pstm.executeQuery();
-        
+         } catch (Exception e) {
+             throw new RuntimeException(e);
+        }
     }
     
     public static Object value(String sql,Object...args) {
@@ -62,7 +65,7 @@ public class JDBCHelper {
     
     public static int update(String sql,Object...args) {
         try {
-            PreparedStatement pstm=JDBCHelper.getStm(sql, args);
+            PreparedStatement pstm= getStm(sql, args);
             try {
                 return pstm.executeUpdate();
             } finally {
