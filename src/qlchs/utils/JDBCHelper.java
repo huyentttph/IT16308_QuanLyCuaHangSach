@@ -12,11 +12,10 @@ import java.sql.*;
  */
 public class JDBCHelper {
 
-    
-    public static String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String url="jdbc:sqlserver://localhost:1433;databaseName=QLNS";
-    public static String username="sa";
-    public static String password="songlong";
+    public static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    public static String url ="jdbc:sqlserver://34.87.102.197:1433;databaseName=DuAn1";
+    public static String username = "duan1";
+    public static String password = "duan1";
     //nạp driver
     static{
         try {
