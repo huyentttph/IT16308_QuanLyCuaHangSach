@@ -62,7 +62,7 @@ public class phieuNhapDao extends QLNSDAO<PhieuNhap, String> {
                 entity.setMaNV(rs.getString("MaNV"));
                 entity.setMaNCC(rs.getString("MaNCC"));
                 entity.setNgayNhap(rs.getDate("NgayNhap"));
-                entity.setTongTien(rs.getDouble("TongTien"));
+                entity.setTongTien(rs.getFloat("TongTien"));
                 list.add(entity);
             }
             
@@ -70,6 +70,14 @@ public class phieuNhapDao extends QLNSDAO<PhieuNhap, String> {
             throw new RuntimeException(e);
         }
         return list;
+    }
+    public void updateTTien(float tt,String pn) {
+        String sql ="UPDATE PHIEUNHAP set  TongTien=? WHERE MaPN=?";
+        JDBCHelper.update(sql,  tt, pn);
+    }
+    public List<PhieuNhap> selectByKeyword(String keyword){
+        String sql="SELECT * FROM PHIEUNHAP WHERE MaPN LIKE ?";
+        return this.selectBySql(sql, "%"+keyword+"%");
     }
 
 }
