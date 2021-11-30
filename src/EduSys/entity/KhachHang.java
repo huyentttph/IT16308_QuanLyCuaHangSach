@@ -57,6 +57,9 @@ public class KhachHang {
         this.Email = Email;
     }
 
-    
+    @Override
+    public String toString(){
+        return MaKH +"" ;
+    }
     
 }
