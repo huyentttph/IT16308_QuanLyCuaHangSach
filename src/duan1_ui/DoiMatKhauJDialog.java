@@ -267,8 +267,7 @@ public class DoiMatKhauJDialog extends javax.swing.JDialog {
     nhanvienDAO dao = new nhanvienDAO();
     
     private void doiMatKhau() {
-        
-        try {
+         try {
             String maNV = txtTenTaiKhoan.getText();
             String matKhau = new String(txtPassCu.getPassword());
             String matKhauMoi = new String(txtPassMoi.getPassword());
