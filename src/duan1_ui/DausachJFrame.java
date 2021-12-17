@@ -897,9 +897,9 @@ public class DausachJFrame extends javax.swing.JFrame {
             String diaChi = txtDiachi.getText();
             
             boolean trangThai;
-            if (radioHD.isSelected() == true) {
+            if (radioHD.isSelected() ) {
                 trangThai = true;
-            } else {
+            } else  {
                 trangThai = false;
             }
             NhaXuatBan nxb = new NhaXuatBan(maNXB, tenNXB, diaChi, email, XDate.toDate(namNXB, "yyyy-MM-dd"), trangThai);
@@ -1058,11 +1058,6 @@ txtTenTG.setText("");
                 return;
             }
             NhaXuatBanDAO dao = new NhaXuatBanDAO();
-            NhaXuatBan nxb2 = dao.selectById(txtmaNXB.getText());
-            if (nxb2 != null) {
-                MsgBox.alert(this, "Mã nhà xuất bản trùng");
-                return;
-            }
             
             daoNXB.update(nxb);
             fillNXB();
